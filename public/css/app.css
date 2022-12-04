@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: rgba(215, 205, 205, 0.5);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    
+    height: 70vh;
+    
+}
+h1 {
+    font-family: 'Permanent Marker';
+    color:#872C31;
+   
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background: #872C31;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+}
+.menu ul  {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+    width: 100%;
+    list-style-type: none;
+    
+}
+.menu li a {
+    color: white;
+    text-decoration: none;
+
+}
+.menu li a:hover {
+    color: goldenrod;
+}
+
+.form-control{
+    padding: 16px;
+    margin-bottom: 5px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #80191e;;
+    /* background: rgba(215, 205, 205, 0.5); */
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+  
+}
+.form-control label{
+    margin-right: 10px;
+    color: white;
+}
+.form-control input{
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+  
+}
+
+.form-control button{
+    padding: 15px;
+    border-radius: 10px;
+    border-style: none;
+    width: 49%;
+    cursor: pointer;
+    background: #872C31;
+    color: white;
+}
+
+.form-control button:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* border-radius: 10px; */
+    transform: translateY(2%);
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 1px solid red; */
+    width: 30%;
+    height: 40vh;
+    background: #872C31;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   
+}

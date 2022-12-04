@@ -10,14 +10,14 @@
 </head>
 <body>
 
-<div class="menu">
-
+    <div class="menu">
         <ul>
-            <li><a href="index.php?x=1">Connexion</a></li>
-            <li><a href="index.php?x=-1">Deconnexion</a></li>
+            <li><a href="index.php?liste=1">Lister Ouvrage</a></li>
+            <li><a href="index.php?liste=2">Lister Rayons</a></li>
+            <li><a href="index.php?liste=3">Lister Auteurs</a></li>
+            <li><a href="index.php?liste=4">Lister exemplaires</a></li>
         </ul>
-</div>
-
+    </div>
 
 </body>
 </html>
