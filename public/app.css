@@ -1,0 +1,27 @@
+body {
+    background: black;
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.container {
+    width: 80%;
+    height: 85vh;
+    border: 1px solid black;
+    background-color: rgb(215, 196, 171);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+table {
+    width: 90vh;
+    text-align: center;
+}
+table,tr, th, td {
+    border: 1px solid black;
+    padding: 15px;
+
+}
