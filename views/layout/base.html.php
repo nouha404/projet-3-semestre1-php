@@ -14,7 +14,7 @@
 
         <ul>
             <li><a href="index.php?x=1">Connexion</a></li>
-            <li><a href="index.php?x=-1">Deconnexion</a></li>
+          
         </ul>
 </div>
 

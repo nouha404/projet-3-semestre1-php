@@ -99,3 +99,30 @@ border-radius: 10px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
    
 }
+.conteneur {    
+    transform: translateY(30%);
+    width: 75%;
+    height: 10vh;
+
+    
+}
+.conteneur h1 {
+    text-align: center;
+    margin: 20px;
+    color: #872C31;
+    
+}
+.conteneur table {
+    border: 1px solid black;
+    width: 60%;
+    margin: 0 auto;
+}
+table tr, th, td {
+    border: 1px solid gray;
+    padding: 1rem;
+}
+
+table th {
+    background: #872C31;
+    color: white;
+}

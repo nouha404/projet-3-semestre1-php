@@ -7,18 +7,9 @@ o   Lister les exemplaires des œuvres disponibles
 o   Lister les rayons où se trouves les exemplaires (des œuvres disponibles)
 o   Lister les exemplaires indisponibles (en prêt ou détériorés) -->
 
-<div class="menu">
-    <ul>
-        <li><a href="index.php?liste=1">Lister Ouvrage</a></li>
-        <li><a href="index.php?liste=2">Lister Rayons</a></li>
-        <li><a href="index.php?liste=3">Lister Auteurs</a></li>
-        <li><a href="index.php?liste=4">Lister exemplaires</a></li>
-    </ul>
-</div>
 
 <div class="conteneur">
-    <h2>Lister Ouvrage</h2>
-
+    <h1>Lister Ouvrage</h1>
     <table>
             <tr>
                 <th>ID</th>
@@ -27,10 +18,9 @@ o   Lister les exemplaires indisponibles (en prêt ou détériorés) -->
             </tr>
             <?php foreach ($ouvrages as $val):  ?>
                 <tr>
-                    <th><?php echo($val["id"]); ?> </th>
-                    <th><?php echo($val["niveau"]); ?></th>
-                    <th><?php echo($val["filiere"]); ?></th>
-                    <th><?php echo($val["libelle"]); ?></th>
+                    <th><?php echo($val['id']); ?> </th>
+                    <th><?php echo($val['titre']); ?> </th>
+                    <th><?php echo($val["date-d'édition"]); ?> </th>
                 </tr>
             <?php endforeach ?>
         </table>

@@ -1,1 +1,1 @@
-<?php require_once('views/layout/base.html.php'); require_once('controller/controller.php'); ?>
+<?php  require_once('controller/controller.php'); ?>

@@ -12,10 +12,11 @@
 
     <div class="menu">
         <ul>
-            <li><a href="index.php?liste=1">Lister Ouvrage</a></li>
-            <li><a href="index.php?liste=2">Lister Rayons</a></li>
-            <li><a href="index.php?liste=3">Lister Auteurs</a></li>
-            <li><a href="index.php?liste=4">Lister exemplaires</a></li>
+            <li><a href="index.php?x=ouvrages">Lister Ouvrage</a></li>
+            <li><a href="index.php?x=rayons">Lister Rayons</a></li>
+            <li><a href="index.php?x=auteurs">Lister Auteurs</a></li>
+            <li><a href="index.php?x=exemplaire">Lister exemplaires</a></li>
+            <li><a href="index.php?x=-1">Deconnexion</a></li>
         </ul>
     </div>
 
