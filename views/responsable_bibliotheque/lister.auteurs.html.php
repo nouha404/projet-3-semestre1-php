@@ -1,24 +1,21 @@
 <div class="conteneur">
-    <h2>Lister AUTEURS</h2>
-
+    <h1>Lister AUTEURS</h1>
     <table>
             <tr>
                 <th>ID</th>
                 <th>PRENOM</th>
                 <th>NOM</th>
                 <th>PROFESSION</th>
-                <th>OUVRAGE ID</th>
+                <th>OUVRAGE</th>
             </tr>
-            <?php foreach ($auteurs as $val):  ?>
+            <?php foreach ($authors as $val):  ?>
                 <tr>
                     <th><?php echo($val["id"]); ?> </th>
                     <th><?php echo($val["prenom"]); ?></th>
                     <th><?php echo($val["nom"]); ?></th>
                     <th><?php echo($val["profession"]); ?></th>
-                    <th><?php echo($val["ouvrage_id"]); ?></th>
-                    
+                    <th><?php echo($val["livre"]); ?></th>              
                 </tr>
             <?php endforeach ?>
         </table>
-
 </div>

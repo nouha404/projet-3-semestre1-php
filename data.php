@@ -24,8 +24,8 @@ function find_ouvrage(): array {
 
 }
 
-function find_rayon() {
-    $return = [
+function find_rayons() : array{
+    return [
         ['id' => 1,'ouvrage_id' => 1, 'nom' => 'Fantasy'],
         ['id' => 2,'ouvrage_id' => 2, 'nom' => 'Litterature'],
         ['id' => 3,'ouvrage_id' => 3, 'nom' => 'Shonen'],

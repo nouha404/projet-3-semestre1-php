@@ -1,28 +1,33 @@
-<div class="menu">
-    <ul>
-        <li><a href="index.php?liste=1">Lister Ouvrage</a></li>
-        <li><a href="index.php?liste=2">Lister Rayons</a></li>
-        <li><a href="index.php?liste=3">Lister Auteurs</a></li>
-        <li><a href="index.php?liste=4">Lister exemplaires</a></li>
-    </ul>
-</div>
-
 <div class="conteneur">
-    <h2>Lister Rayons</h2>
-
+    <h1>Lister Rayons</h1>
+   
+        <form action="index.php?x=rayons" method="POST">
+                <div class="form-control">
+                    <label for="">RAYONS</label>
+                    <select name="rayons" id="">
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Litterature">Litterature</option>
+                        <option value="Shonen">Shonen</option>
+                        <option value="Roman">Roman</option>    
+                    </select>
+                </div>
+                <div class="form-control">
+                    <button name="btn-save" value="filtre-rayon">Filtrer</button>
+                </div>
+                
+            </form>
     <table>
             <tr>
                 <th>ID</th>
-                <th>NOM</th>
-                <th>Rayons</th>
+                <th>TITRE</th>
+                <th>RAYONS</th>
             </tr>
-            <?php foreach ($rayons as $val):  ?>
+            <?php foreach ($rayons as $rayonKey):  ?>
                 <tr>
-                    <th><?php echo($val["id"]); ?> </th>
-                    <th><?php echo($val["nom"]); ?></th>
-                    <th><?php echo($val["rayons"]); ?></th>
+                    <th><?php echo($rayonKey["id"]); ?> </th>
+                    <th><?php echo($rayonKey["titre"]); ?></th>
+                    <th><?php echo($rayonKey["rayon"]); ?></th>
                 </tr>
             <?php endforeach ?>
         </table>
-
 </div>
