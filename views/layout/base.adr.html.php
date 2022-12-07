@@ -9,17 +9,13 @@
    
 </head>
 <body>
-
-<div class="menu">
-
+    <div class="menu">
         <ul>
-            <li><a href="index.php?x=1">Connexion</a></li>
-            <li><a href="index.php?x=c">Catalogue</a></li>
-
+            <li><a href="index.php?x=e">Catalogue</a></li>
+            <li><a href="index.php?x=d">Demande de Pret</a></li>
+            <li><a href="index.php?x=-1">Deconnexion</a></li>
         </ul>
-</div>
-
+    </div>
 
 </body>
 </html>
-

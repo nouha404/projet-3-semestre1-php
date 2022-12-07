@@ -1,15 +1,32 @@
 <?php
 require_once('models.php');
-
-     // Gere la partie connexion lors qui clique sur le bouton
-     if (isset($_POST['btn-save'])) {
-        $x = $_POST['btn-save'];
+// Gere la partie connexion lors qui clique sur le bouton
+if (isset($_POST['btn-save'])) {
+    session_start();
+    $x = $_POST['btn-save'];
+    switch ($x) {
+        case 'connexion':
+            $role = $_POST['nom'];
+            $password = $_POST['password'];
+            $userRoleInDatabase = find_all_loger_role($role,$password);
+            if($userRoleInDatabase ){
+                foreach($userRoleInDatabase as $user) {
+                    if($user['role'] == 'rp-biblio'){
+                        require_once('./views/layout/base.rb.html.php');
+                        break;
+                    } elseif($user['role'] == 'rp-pret') {
+                        require_once('./views/layout/base.rp.html.php');
+                        break;
+                    } elseif($user['role'] == 'adherent') {
+                        require_once('./views/layout/base.adr.html.php');
+                        break;
+                    } 
+                } 
+            } else {
+                header('location:index.php?x=1');
+                exit();
+            }
         
-        switch ($x) {
-            case 'connexion':
-                require_once('./views/layout/base.rb.html.php');
-                break;
-          
         }
  } else {
         require_once('views/layout/base.html.php');
@@ -21,12 +38,8 @@ require_once('models.php');
             case "1":
                 require_once('./views/layout/connexion.html.php');
                 break;
-            case "-1":
-                header("location:index.php");
-                break;
             case 'ouvrages':
                 $ouvrages = find_all_ouvrages();
-                
                 require_once('views/layout/base.rb.html.php');
                 require_once('./views/responsable_bibliotheque/lister.ouvrages.html.php');
                 break;
@@ -42,6 +55,18 @@ require_once('models.php');
                     require_once('./views/responsable_bibliotheque/lister.rayons.html.php');
                 }
                 break;
+            
+            case 'prets-filter':
+                require_once('views/layout/base.adr.html.php');
+                if(isset ($_POST['btn-save']) == 'filtre-rayon') {
+                    $statut = $_POST['statut'];
+                    $prets = find_all_pret_by_filtrer($statut);
+                    require_once('./views/visiteur/demande.pret.filtre.html.php');
+                } else {
+                    require_once('./views/visiteur/demande.pret.html.php');
+                }
+                break;
+            
             case 'auteurs':
                     require_once('views/layout/base.rb.html.php');
                     $authors = find_all_books_auteurs_with_them_ouvrage_name();
@@ -52,8 +77,15 @@ require_once('models.php');
                 $exemplaires = find_all_exemplaires();
                 require_once('./views/responsable_bibliotheque/lister.exemplaire.html.php');
                 break;
+            case 'c':
+                $ouvrages = find_all_ouvrages();
+                require_once('./views/responsable_bibliotheque/lister.ouvrages.html.php');
+                break;
 
+            case 'd':
+                $pretWithExemplaires = find_exemplaire_with_pret();
+                require_once('./views/visiteur/demande.pret.html.php');
+                break; 
         }
 }
-
 // function

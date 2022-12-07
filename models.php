@@ -79,3 +79,62 @@ function find_all_exemplaires() {
     }
     return $arrayExemplaire;
 }
+
+
+function find_all_loger_role($role, $password){
+    $users = find_login();
+    $allUsers = [];
+    foreach($users as $user){
+        if($role == $user['role'] and $password == $user['password']){
+            $allUsers[] = [
+                'role' => $user['role'],
+                'password' => $user['password'],
+            ];
+            return $allUsers;
+        }
+    }
+    return [];
+}
+
+function find_exemplaire_with_pret(){
+    $pretWithExemplaires = find_pret();
+    $allPrets = [];
+    foreach($pretWithExemplaires as $exemplaire) {
+        $prets = find_exemplaire_with_id($exemplaire['id_exemplaire']);
+        $allPrets[] = [
+            'id' => $exemplaire['id'],
+            'date-enregistrement' => $prets['date-enregistrement'],
+            'retour' => $exemplaire['date-retour'],
+            'statut' => $exemplaire['statut'],
+        ];
+    }
+    return $allPrets;
+}
+
+function find_exemplaire_with_id(int $id){
+    $exemplaires = find_exemplaire();
+    // Si id ouvrage = id rayons je recuperer le titre de ouvrage
+    foreach($exemplaires as $key){
+        if($key['id'] == $id) {
+            return $key;
+        }
+    }
+    return [];
+}
+
+function find_all_pret_by_filtrer($statut){
+    $prets = find_pret();
+    $arrayPret = [];
+    foreach($prets as $pret) {
+        $pretID = find_exemplaire_with_id($pret['id_exemplaire']);
+        if($pret['statut'] == $statut){
+            $arrayPret[] = [
+                'id' => $pret['id'],
+                'date-enregistrement' => $pretID['date-enregistrement'],
+                'retour' => $pret['date-retour'],
+                'statut' => $pret['statut'],
+            ];
+        }
+    }
+    return $arrayPret;
+}
