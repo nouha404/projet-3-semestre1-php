@@ -11,15 +11,17 @@
 <body>
 
 <div class="menu">
-
         <ul>
-            <li><a href="index.php?x=1">Connexion</a></li>
-            <li><a href="index.php?x=c">Catalogue</a></li>
+                <li><a href="index.php?x=1">Connexion</a></li>
+                <li><a href="index.php?x=c">Catalogue</a></li>
+            <?php  if($_SESSION['connect'] == 1) :?> 
+                <li><a href="index.php?x=e">Catalogue</a></li>
+                <li><a href="index.php?x=d">Demande de Pret</a></li>
+                <li><a href="index.php?x=-1">Deconnexion</a></li>
+            <?php endif ?>
 
         </ul>
 </div>
 
-
 </body>
 </html>
-

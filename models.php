@@ -80,7 +80,6 @@ function find_all_exemplaires() {
     return $arrayExemplaire;
 }
 
-
 function find_all_loger_role($role, $password){
     $users = find_login();
     $allUsers = [];
