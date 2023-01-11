@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['connect'] = 0;
 require_once('models.php');
 // Gere la partie connexion lors qui clique sur le bouton
 if (isset($_POST['btn-save'])) {
@@ -11,6 +12,8 @@ if (isset($_POST['btn-save'])) {
             $userRoleInDatabase = find_all_loger_role($role,$password);
             // si les infos saisis sont dans la db je recherche le user et affiche la page correspondant au lieu d'ecrire ici le mot de passe
             if($userRoleInDatabase ){
+                $_SESSION['connect'] = 1;
+                
                 foreach($userRoleInDatabase as $user) {
                     if($user['role'] == 'rp-biblio'){
                         require_once('./views/layout/base.rb.html.php');
@@ -19,6 +22,7 @@ if (isset($_POST['btn-save'])) {
                     } elseif($user['role'] == 'adherent') {
                         require_once('./views/layout/base.adr.html.php');
                     } 
+                    
                 } 
             } else {
                 // echo "Je l'amene a la premiere page";
@@ -29,20 +33,23 @@ if (isset($_POST['btn-save'])) {
             }
         }
  } else {
-        $_SESSION['connect'] = 0;
+        // header("location:index.php?x=1");
         require_once('views/layout/base.html.php');
     }
 
-    if (isset($_GET['x'])) {
+if (isset($_GET['x'])) {
+    
         $x = $_GET['x'];
     switch ($x) {
+
         case "1":
             require_once('./views/layout/connexion.html.php');
             break;
         case 'ouvrages':
-            $ouvrages = find_all_ouvrages();
-            require_once('views/layout/base.rb.html.php');
-            require_once('./views/responsable_bibliotheque/lister.ouvrages.html.php');
+                $ouvrages = find_all_ouvrages();
+                require_once('views/layout/base.rb.html.php');
+                require_once('./views/responsable_bibliotheque/lister.ouvrages.html.php');
+            
             break;
         case 'rayons':
             $rayons = find_rayons_with_ouvrage_name();
@@ -82,7 +89,11 @@ if (isset($_POST['btn-save'])) {
             $ouvrages = find_all_ouvrages();
             require_once('./views/responsable_bibliotheque/lister.ouvrages.html.php');
             break;
-
+        case 'e':
+            $ouvrages = find_all_ouvrages();
+            require_once('./views/adherent/catalogue.html.php');
+            // require_once('./views/responsable_bibliotheque/lister.ouvrages.html.php');
+            break;
         case 'd':
             $pretWithExemplaires = find_exemplaire_with_pret();
             require_once('./views/adherent/demande.pret.html.php');
@@ -98,8 +109,10 @@ if (isset($_POST['btn-save'])) {
                 require_once('./views/responsable_pret/lister.prets.html.php');
             }
             break;
-    
-          
+        case "-1":
+            header('location:index.php'); 
+            break;
+    // fin swiitch case    
     }
 }
 // function
